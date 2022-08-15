@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <title>EECS485</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+  <div class="container">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="preseentation" class="active"><a href="/sksnf4gf1or/pa2/">Home</a></li>
+          {% if login %}
+          <li role="presentation" class="active"><a href='/sksnf4gf1or/pa2/albums'>My Albums</a></li>
+          <li role="presentation" class="active"><a href='/sksnf4gf1or/pa2/user/edit'>Edit Profile</a></li>
+          {% else %}
+          <li role="presentation" class="active"><a href='/sksnf4gf1or/pa2/albums'>Public Albums</a></li>
+          {% endif %}
+          {% if not hideLogin and not login %}
+          <li role="presentation" class="active"><a href='/sksnf4gf1or/pa2/user/login?url={{request.url}}'>Login</a></li>
+          {% endif %}
+          {% if login %}
+          <li role="presentation" class="active"><a href='/sksnf4gf1or/pa2/user/logout'>Logout</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+      <h3 class="text-muted"><a href="/sksnf4gf1or/pa2/">The Great Album Wall</a></h3>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+      <p>© J.P.H. Inc. 2015</p>
+    </footer>
+  </div>
+
+
+  <script type="text/javascript" src="/static/js/main.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+</body>
+
+</html>

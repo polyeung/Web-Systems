@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-xs-9">
+  </div>
+  <div class="col-xs-3">
+    <h1><a class="btn btn-default" href="./album?id={{albumid[0]}}" >Back to album</a></h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+        <img class="img-responsive img-with-max-size" src="{{url[0]}}" alt="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {% if owner %}
+      <form action="" method="POST">
+        <label for="pwd">Caption:</label>
+        <input type="text" class="form-control" name="caption" value="{{caption}}">
+        <button type="submit" class="btn btn-default">Save</button>
+      </form>
+      {% else %}
+      <p><b>Caption: </b>{{caption}}</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <a class="btn btn-primary {% if not prev %}disabled{% endif %}" href="./pic?id={{prev}}" style="float:left">Prev</a></h1>
+    </div>
+    <div class="col-xs-6">
+      <a class="btn btn-primary {% if not next %}disabled{% endif %}" href="./pic?id={{next}}" style="float:right">Next</a></h1>
+    </div>
+  </div>
+</div>
+{% endblock %}
